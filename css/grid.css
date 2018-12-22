@@ -1,0 +1,241 @@
+/* ==============================
+   Edit the CSS below to create your grid.
+   ============================== */
+@supports (grid-area: auto){
+
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:  5em 5em 1fr 3em;
+    grid-template-areas:
+      "logo  logo logo"
+      "header header header"
+      "article article2 article3"
+      "footer footer footer";
+  }
+
+  header{ grid-area: header; }
+  Nav{grid-area: nav;}
+  logo{grid-area: logo; }
+  article{ grid-area: article; }
+  article2{ grid-area: article2; }
+  article3{ grid-area: article3; }
+  footer{ grid-area: footer; }
+
+} /* end @supports
+
+
+
+
+
+/* ---------------------------
+   This uses Flexbox to center the content in the boxes. It also gives them a some styling. The CSS below is not required for the grid layout.
+*/
+
+header,article,article2,article3,sidebar,footer,item2,images{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #333;
+/*   height: 10em;   */
+}
+
+header{
+   background-color: grey;
+
+
+}
+logo{background-color: grey;
+text-align: center;}
+
+article{
+  background-color: #1a8cff
+
+
+;
+}
+article2{
+  background-color:#990000
+;
+}
+article3{
+  background-color: #3d0099
+;
+}
+
+item2{
+  background-color:purple;
+}
+figcaption{ color: white;}
+
+href{ color: white;}
+
+sidebar{
+  background-color: #A6D56A;
+}
+
+footer{
+  background-color: grey;
+}
+
+p{
+  color: #fff;
+  font-weight: 100;
+  font-size: 2em;
+  font-family: Helvetica Neue, Calibri, Arial, Open Sans, sans-serif;
+}
+
+
+/* ============================
+* NAVIGATION
+* Modified from: http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/a-simple-responsive-mobile-first-navigation/
+* =============================*/
+
+/* Hide Main Nav to start if they use javascript. Will use JS to show if appropriate
+.js class is added through Modernizr */
+.js #main_nav {
+  clear: both;
+  display: grid;
+  /*hidden to start */
+}
+
+#main_nav ul {
+  list-style: none;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+#main_nav li {
+  margin-bottom: 0;
+}
+
+#main_nav li a {
+  display: block;
+  color: #fff;
+  background-color: #555;
+  text-transform: uppercase;
+  padding: 0.625em;
+  /* 10px in ems is 10/16 */
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  font-weight: 900;
+}
+
+#main_nav li a:hover {
+  color: #555;
+  background-color: #fff;
+}
+
+#main_nav li a:active {
+  color: #555;
+  background-color: #f90;
+}
+
+/* menu button */
+.menu {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.menu a {
+  padding: 0.5em 0.625em; /*10/16 */
+  background-color: #555;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #555;
+  background-color: #f90;
+}
+
+
+
+/* ==========================
+*  Media Queries for Main Nav
+*  ========================== */
+
+/* these don't have to be separate. We did so for two reasons:
+1. Easy to copy and paste this into new design
+2. Depending on your site you may need separate break points for the nav. You may want to see what width is needed to fit your nav horizontally without breaking and use that as the breakpoint.
+It should also be noted that there is only one media query because this CSS moves the nav to the top where it can stay for all of the other sizes.
+*/
+
+/* 45em is about 720px depending on the base font-size */
+
+@media only screen and (min-width: 45em) {
+    /* hide the menu button */
+    .menu {
+        display: none;
+    }
+    #main_nav {
+        /* move main_nav to top of the screen */
+/*         position: absolute;
+        top: 0;
+        left: 0; */
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        /* should be the same as #main_nav li a background color above */
+        background-color: #555;
+    }
+    #main_nav li {
+        display: inline;
+        line-height: 1em;
+    }
+    #main_nav li a {
+        float: left;
+        padding: 0.9375em;
+        /* 10/16  and  15/16 */
+        border-bottom: none;
+    }
+    #main_nav li a.top {
+        display: none;
+    }
+
+
+/* The following will move the nav to the top of the screens */
+    #main_nav {  /* move main_nav to top of the screen */
+        /* position: absolute;
+        top: 0;
+        left: 0;  */
+    }
+
+    .container { /* move the rest of the page down accordingly. Need to add wrap element with .container class */
+        /* margin-top: 4em; */ /* adjust depending on the height of your nav */
+    }
+
+
+} /* end media query */
+img{
+  max-width: 100%;
+   height: auto;
+ }
+
+
+
+ .grid-container {
+   display: grid;
+   grid-template-columns: auto auto auto ;
+   grid-template-rows: auto auto auto auto;
+   background-color: grey;
+
+ }
+
+ .grid-item {
+   background-color: rgba(255, 255, 255, 0.8);
+   border: 1px solid rgba(0, 0, 0, 0.8);
+   padding: 10px;
+   font-size: 30px;
+   text-align: center;
+ }
+
+ .grid-footer {  background-color: grey;
+
+
+   text-align: center;
+
+ /*   height: 10em;   */
+ }
